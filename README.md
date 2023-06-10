@@ -1,1 +1,1 @@
-# Paire_Trading
+# Pairs_Trading
