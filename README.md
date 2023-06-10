@@ -1,4 +1,5 @@
 # Summer 2023 Research
+## Pairs Trading
 ## Group members:
 > Name Here: 📫 Sokhengteang@csu.fullerton.edu 
 
