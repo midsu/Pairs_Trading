@@ -1,19 +1,10 @@
 # Summer 2023 Research
+## Group members:
 > Name Here: 📫 Sokhengteang@csu.fullerton.edu 
 
 > Hamid Suha: 📫 hsuha@csu.fullerton.edu
 
 > Instructors: Doina Bein (dbein@fullerton.edu)
-
-## Group members:
-
-Name Here: 📫 Sokhengteang@csu.fullerton.edu 
-
-Hamid Suha: 📫 hsuha@csu.fullerton.edu
-
-Summer 2023
-
-Instructors: Doina Bein (dbein@fullerton.edu)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
