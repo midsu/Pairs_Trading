@@ -1,5 +1,9 @@
 # Summer 2023 Research
-> Pairs Trading
+> Name Here: 📫 Sokhengteang@csu.fullerton.edu 
+
+> Hamid Suha: 📫 hsuha@csu.fullerton.edu
+
+> Instructors: Doina Bein (dbein@fullerton.edu)
 
 ## Group members:
 
