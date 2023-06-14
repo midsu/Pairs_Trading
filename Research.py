@@ -6,7 +6,7 @@ from datetime import datetime
 api_key = 'R9RDVNKFONRCSA6D'
 
 # Prompt the user to enter a stock ticker
-stock_ticker = input('Enter a stock ticker (e.g. AAPL): ')
+stock_ticker = input('Enter a stock ticker to retrieve its data (e.g. AAPL): ')
 
 # Make a request to the Alpha Vantage API to retrieve the stock data
 response = requests.get(f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={stock_ticker}&apikey={api_key}')
@@ -49,9 +49,6 @@ else:
     print(f'Most recent data for {stock_ticker}:')
     print(f'Date: {latest_date}')
     print(f'Open: ${latest_open:,.2f}')
-    print(f'High: ${latest_high:,.2f}')
-    print(f'Low: ${latest_low:,.2f}')
     print(f'Close: ${latest_close:,.2f}')
-    print(f'Volume: {latest_volume:,}')
     print(f'Daily Change: ${latest_daily_change:,.2f}')
     print(f'% Change: {latest_percent_change:,.2f}%')
