@@ -1,7 +1,7 @@
 # Summer 2023 Research
  - ## Pairs Trading
 ## Group members:
-> Name Here: 📫 Sokhengteang@csu.fullerton.edu 
+> Name Here: 📫 sokhengteang@csu.fullerton.edu 
 
 > Hamid Suha: 📫 hsuha@csu.fullerton.edu
 
