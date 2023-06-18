@@ -84,13 +84,15 @@ for stock_ticker in stock_tickers:
         iqr_return = iqr(log_returns_arr)
         print(f'IQR of log return for {stock_ticker}: {iqr_return:.2f}')
                 
-    
+# Almost complete with this code.... (finished code below)....not 100% done
 import requests
 import csv
 from datetime import datetime
 import matplotlib.pyplot as plt
 import math
 import numpy as np
+import statsmodels.api as sm
+
 
 def retrieve_stock_data(stock_ticker1, stock_ticker2):
     # Enter your Alpha Vantage API key here
@@ -182,12 +184,26 @@ def retrieve_stock_data(stock_ticker1, stock_ticker2):
     plt.legend()
     plt.show()
 
-    # Plot the quartiles and interquartile range for each stock
+    # Perform Engle-Granger cointegration test
+    residuals = log_returns2 - log_returns1
+    adf_result = sm.tsa.stattools.adfuller(residuals)
+    p_value = adf_result[1]
+    is_cointegrated = p_value < 0.05
+
+    # Print the cointegration test result
+    if is_cointegrated:
+        print("The stocks are cointegrated.")
+    else:
+        print("The stocks are not cointegrated.")
+
+    # Plot the residuals
     plt.figure(figsize=(10, 6))
-    plt.boxplot([closing_prices1, closing_prices2], labels=[stock_ticker1, stock_ticker2])
-    plt.title('Quartiles and Interquartile Range')
-    plt.xlabel('Stock Ticker')
-    plt.ylabel('Closing Price')
+    plt.plot(residuals, color='green', label='Residuals')
+    plt.axhline(0, color='black', linestyle='--')
+    plt.title('Engle-Granger Residuals')
+    plt.xlabel('Days')
+    plt.ylabel('Residual')
+    plt.legend()
     plt.show()
 
     # Calculate the correlation
