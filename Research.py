@@ -85,9 +85,6 @@ for stock_ticker in stock_tickers:
         print(f'IQR of log return for {stock_ticker}: {iqr_return:.2f}')
                 
     
-# Hamid Code:
-# this is correct (1)
-
 import requests
 import csv
 from datetime import datetime
@@ -171,16 +168,31 @@ def retrieve_stock_data(stock_ticker1, stock_ticker2):
     # Show the plot
     plt.show()
 
+    # Calculate the log returns
+    log_returns1 = np.diff(np.log(closing_prices1))
+    log_returns2 = np.diff(np.log(closing_prices2))
+
+    # Plot the log returns
+    plt.figure(figsize=(10, 6))
+    plt.plot(log_returns1, color='blue', label=stock_ticker1)
+    plt.plot(log_returns2, color='red', label=stock_ticker2)
+    plt.title('Log Returns')
+    plt.xlabel('Days')
+    plt.ylabel('Log Return')
+    plt.legend()
+    plt.show()
+
     # Plot the quartiles and interquartile range for each stock
     plt.figure(figsize=(10, 6))
-
     plt.boxplot([closing_prices1, closing_prices2], labels=[stock_ticker1, stock_ticker2])
     plt.title('Quartiles and Interquartile Range')
     plt.xlabel('Stock Ticker')
     plt.ylabel('Closing Price')
-
-    # Show the plot
     plt.show()
+
+    # Calculate the correlation
+    correlation = np.corrcoef(log_returns1, log_returns2)[0, 1]
+    print(f"Correlation between {stock_ticker1} and {stock_ticker2}: {correlation}")
 
 # Prompt the user to enter two stock tickers
 stock_ticker1 = input('Enter the first stock ticker (e.g. AAPL): ')
