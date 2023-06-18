@@ -85,3 +85,106 @@ for stock_ticker in stock_tickers:
         print(f'IQR of log return for {stock_ticker}: {iqr_return:.2f}')
                 
     
+# Hamid Code:
+# this is correct (1)
+
+import requests
+import csv
+from datetime import datetime
+import matplotlib.pyplot as plt
+import math
+import numpy as np
+
+def retrieve_stock_data(stock_ticker1, stock_ticker2):
+    # Enter your Alpha Vantage API key here
+    api_key = 'R9RDVNKFONRCSA6D'
+
+    stock_tickers = [stock_ticker1, stock_ticker2]
+
+    plt.figure(figsize=(10, 6))  # Create a larger figure size for better visualization
+
+    closing_prices1 = []
+    closing_prices2 = []
+
+    for stock_ticker in stock_tickers:
+        # Make a request to the Alpha Vantage API to retrieve the stock data
+        response = requests.get(f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={stock_ticker}&apikey={api_key}')
+
+        # Parse the response data as JSON
+        data = response.json()
+
+        # Check if the API returned an error message
+        if 'Error Message' in data:
+            print(data['Error Message'])
+        else:
+            # Extract the closing prices for the last 120 days
+            dates = sorted(data['Time Series (Daily)'].keys(), reverse=True)
+            closing_prices = []
+            for i, date in enumerate(dates):
+                if i >= 120:
+                    break
+                close_price = float(data['Time Series (Daily)'][date]['4. close'])
+                closing_prices.append(close_price)
+
+            # Calculate the mean of the closing prices
+            mean = np.mean(closing_prices)
+
+            # Perform the subsequent calculations
+            deviations = [(price - mean) for price in closing_prices]
+            squared_deviations = [(deviation ** 2) for deviation in deviations]
+            sum_squared_deviations = sum(squared_deviations)
+            average_squared_deviation = sum_squared_deviations / (len(closing_prices) - 1)
+            square_root_avg_squared_deviation = math.sqrt(average_squared_deviation)
+
+            # Calculate the quartiles and interquartile range
+            q1 = np.percentile(closing_prices, 25)
+            q2 = np.percentile(closing_prices, 50)
+            q3 = np.percentile(closing_prices, 75)
+            iqr = q3 - q1
+
+            # Print the results
+            print(f"Mean of {stock_ticker} closing prices: {mean}")
+            print(f"Sum of squared deviations from the mean (SS): {sum_squared_deviations}")
+            print(f"Average squared deviation from the mean: {average_squared_deviation}")
+            print(f"Square root of average squared deviation: {square_root_avg_squared_deviation}")
+            print(f"Q1: {q1}")
+            print(f"Q2 (Median): {q2}")
+            print(f"Q3: {q3}")
+            print(f"Interquartile Range (IQR): {iqr}\n")
+
+            # Store the closing prices for each stock
+            if stock_ticker == stock_ticker1:
+                closing_prices1 = closing_prices
+                plt.plot(closing_prices, color='blue', label=stock_ticker1)
+            else:
+                closing_prices2 = closing_prices
+                plt.plot(closing_prices, color='red', label=stock_ticker2)
+
+    # Set the plot title and labels
+    plt.title('Closing Prices')
+    plt.xlabel('Days')
+    plt.ylabel('Price')
+
+    # Add a legend
+    plt.legend()
+
+    # Show the plot
+    plt.show()
+
+    # Plot the quartiles and interquartile range for each stock
+    plt.figure(figsize=(10, 6))
+
+    plt.boxplot([closing_prices1, closing_prices2], labels=[stock_ticker1, stock_ticker2])
+    plt.title('Quartiles and Interquartile Range')
+    plt.xlabel('Stock Ticker')
+    plt.ylabel('Closing Price')
+
+    # Show the plot
+    plt.show()
+
+# Prompt the user to enter two stock tickers
+stock_ticker1 = input('Enter the first stock ticker (e.g. AAPL): ')
+stock_ticker2 = input('Enter the second stock ticker (e.g. GOOGL): ')
+
+# Call the function to retrieve and plot the stock data
+retrieve_stock_data(stock_ticker1, stock_ticker2)
