@@ -5,7 +5,7 @@ import numpy as np
 import statsmodels.api as sm
 
 # Global variable
-api_key = 'R9RDVNKFONRCSA6D'
+api_key = "Enter your api key here"
 
 # Function to get the stock data from API
 def get_stock_data(stock_ticker):
