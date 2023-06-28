@@ -2,8 +2,10 @@
 ## Pairs Trading
 
 ### Group members:
-> Sokheng teang: 📫 sokhengteang@csu.fullerton.edu 
+> Sokheng teang: 📫 sokhengteang@csu.fullerton.edu
+>  
 > Hamid Suha: 📫 hsuha@csu.fullerton.edu
+> 
 > Instructors: Doina Bein (dbein@fullerton.edu)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
