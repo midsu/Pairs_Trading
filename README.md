@@ -35,10 +35,10 @@ This experiment will test the following hypotheses:
   - Historical returns
   - Cost of each transaction
 ```
-Example of the project result:
-```
+**Example of the project result:**
+
 <img width="875" alt="Screen Shot 2023-06-09 at 8 45 20 PM" src="https://github.com/midsu/Pairs_Trading/assets/34997278/6f214a38-4c74-4684-88c3-d527da6151de">
-```
+
 
 
 
