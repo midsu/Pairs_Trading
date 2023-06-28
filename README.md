@@ -1,12 +1,14 @@
 # Summer 2023 Research
 ## Pairs Trading
 
+### Faculty mentor: 
+> Dr. Doina Bein: (dbein@fullerton.edu)
+
 ### Group members:
 > Sokheng teang: 📫 sokhengteang@csu.fullerton.edu
->  
+
 > Hamid Suha: 📫 hsuha@csu.fullerton.edu
-> 
-> Instructors: Doina Bein (dbein@fullerton.edu)
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
