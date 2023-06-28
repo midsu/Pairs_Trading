@@ -9,14 +9,14 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-**Idea**
+**The Idea:**
 ```
 Developed in the 1980’s by a group of Quants at Morgan Stanley, who reportedly made over $50 million profit for the firm in 1987
 A contrarian strategy that tries to profit from the principles of mean-reversion processes
 In theory, one could expand the strategy to include a basket of more than a pair of related stocks 
 ```
 
-**The Hypothesis**
+**The Hypothesis:**
 ```
 This experiment will test the following hypotheses:
 
@@ -25,7 +25,7 @@ This experiment will test the following hypotheses:
  - Reverse your positions when the two prices converge --> Profit from the reversal in trend
 ```
 
-**Invester Decision**
+**Invester Decision:**
 ```
 - Pair Selection Criteria
   - Correlation (Parametric & Non-Parametric Spearman’s Rho)
@@ -36,9 +36,9 @@ This experiment will test the following hypotheses:
   - Cost of each transaction
 ```
 Example of the project result:
-
+```
 <img width="875" alt="Screen Shot 2023-06-09 at 8 45 20 PM" src="https://github.com/midsu/Pairs_Trading/assets/34997278/6f214a38-4c74-4684-88c3-d527da6151de">
-
+```
 
 
 
